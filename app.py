@@ -1,13 +1,16 @@
 import streamlit as st
 import google.generativeai as genai
 
-# Configuración
-st.set_page_config(page_title="AI Product Lister | Fast Descriptions", page_icon="✍️")
+# 1. Recuperar la clave de forma segura
+api_key = st.secrets["GOOGLE_API_KEY"]
 
-# Conectar con la IA (Necesitarás tu clave de API de Google AI Studio)
-# Para desarrollo puedes pegarla aquí, pero lo ideal es usar st.secrets
-genai.configure(api_key=st.secrets["GOOGLE_API_KEY"])
-model = genai.GenerativeModel('gemini-1.5-flash')
+if not api_key:
+    st.error("API Key not found in Secrets!")
+else:
+    genai.configure(api_key=api_key)
+    
+    # 2. Usar la versión flash estable
+    model = genai.GenerativeModel('gemini-1.5-flash')
 
 # Sidebar de Monetización
 st.sidebar.image("https://www.buymeacoffee.com/assets/img/guidelines/download-assets-sm-1.svg", width=150)
