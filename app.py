@@ -7,7 +7,7 @@ st.set_page_config(page_title="AI Product Lister | Fast Descriptions", page_icon
 # Conectar con la IA (Necesitarás tu clave de API de Google AI Studio)
 # Para desarrollo puedes pegarla aquí, pero lo ideal es usar st.secrets
 genai.configure(api_key="AIzaSyDav8Oy92eVAfmauTdy0jsbMIolqufTc5o")
-model = genai.GenerativeModel('gemini-pro')
+model = genai.GenerativeModel('gemini-1.5-flash')
 
 # Sidebar de Monetización
 st.sidebar.image("https://www.buymeacoffee.com/assets/img/guidelines/download-assets-sm-1.svg", width=150)
